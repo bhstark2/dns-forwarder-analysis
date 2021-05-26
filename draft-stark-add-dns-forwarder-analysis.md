@@ -78,7 +78,7 @@ when, and only when, they appear in all capitals, as shown here.
 
 # Background
 
-Having a DNS proxy / forwarder in the CE router that is advertised
+Having a DNS forwarder in the CE router that is advertised
 to the LAN using DHCP and RDNSS options is a common
 deployment model for many ISPs and is also the default in many retail consumer routers (e.g.,
 Netgear).
@@ -129,12 +129,12 @@ Assumptions common to all scenarios are:
 
 Assumptions:
 
- - The CE router (including its DNS proxy and DHCP/RA capabilities) are not updated.
+ - The CE router (including its DNS forwarder and DHCP/RA capabilities) are not updated.
 
 Expected behaviors:
 
  - There will be no DHCP or RA advertisement of encrypted servers.
- - The DNS proxy will forward DDR queries (dns://resolver.arpa) to the DNS recursive resolver the CE router is configured to use.
+ - The DNS forwarder will forward DDR queries (dns://resolver.arpa) to the DNS recursive resolver the CE router is configured to use.
  - If that recursive resolver has the appropriate SVCB record, it will provide that in the response that is returned.
  - The querying OS/app will determine that the IP address of its Unencrypted Resolver (the CE router) and the IP address of the Unencrypted Resolver in the supplied certificate do not match and will not do "authenticated discovery".
  - The querying OS/app will determine that the IP address of its Unencrypted Resolver (the CE router) does not match the IP address of the Encrypted Resolver and will not do "opportunistic discovery".
@@ -172,11 +172,11 @@ Additional results:
  - Filtering in the CE router (parental controls and other security mechanisms enabled by the home network owner) is now broken
  - No local caching
 
-## Scenario 3: CE router updated to support encryption to its DNS proxy
+## Scenario 3: CE router updated to support encryption to its DNS forwarder
 
 Assumptions:
 
- - The CE router supports encrypted connectivity to its DNS proxy
+ - The CE router supports encrypted connectivity to its DNS forwarder
  - The CE router is updated to provide Encrypted Resolver info in DHCP/RA
  - The CE router is updated to reply to `dns://resolver.arpa`; SVCB record points to the CE router with a self-signed certificate
 
@@ -198,7 +198,7 @@ DNS-based parental controls), will break existing captive portal implementations
 to simplify setup of broadband connections, and may break local name resolution (?) it
 is unlikely to be pursued.
 
-This leaves Scenario 1 (do nothing in routers that provide DNS proxy).
+This leaves Scenario 1 (do nothing in routers that provide DNS forwarder).
 
 # Questions for the WG
 
