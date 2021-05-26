@@ -75,7 +75,7 @@ Table of Contents
      4.1.  Scenario 1: No changes to CE router
      4.2.  Scenario 2: CE router updated to provide DNR in DHCP/RA
      4.3.  Scenario 3: CE router updated to support encryption to its
-           DNS proxy
+           DNS forwarder
    5.  Conclusions
    6.  Questions for the WG
    7.  Security Considerations
@@ -122,10 +122,10 @@ Table of Contents
 
 3.  Background
 
-   Having a DNS proxy / forwarder in the CE router that is advertised to
-   the LAN using DHCP and RDNSS options is a common deployment model for
-   many ISPs and is also the default in many retail consumer routers
-   (e.g., Netgear).
+   Having a DNS forwarder in the CE router that is advertised to the LAN
+   using DHCP and RDNSS options is a common deployment model for many
+   ISPs and is also the default in many retail consumer routers (e.g.,
+   Netgear).
 
    [I-D.ietf-add-requirements] contains the following text related to
    this use case:
@@ -187,15 +187,15 @@ Table of Contents
 
    Assumptions:
 
-   *  The CE router (including its DNS proxy and DHCP/RA capabilities)
-      are not updated.
+   *  The CE router (including its DNS forwarder and DHCP/RA
+      capabilities) are not updated.
 
    Expected behaviors:
 
    *  There will be no DHCP or RA advertisement of encrypted servers.
 
-   *  The DNS proxy will forward DDR queries (dns://resolver.arpa) to
-      the DNS recursive resolver the CE router is configured to use.
+   *  The DNS forwarder will forward DDR queries (dns://resolver.arpa)
+      to the DNS recursive resolver the CE router is configured to use.
 
    *  If that recursive resolver has the appropriate SVCB record, it
       will provide that in the response that is returned.
@@ -256,11 +256,11 @@ Table of Contents
    *  No local caching
 
 4.3.  Scenario 3: CE router updated to support encryption to its DNS
-      proxy
+      forwarder
 
    Assumptions:
 
-   *  The CE router supports encrypted connectivity to its DNS proxy
+   *  The CE router supports encrypted connectivity to its DNS forwarder
 
    *  The CE router is updated to provide Encrypted Resolver info in
       DHCP/RA
@@ -293,7 +293,7 @@ Table of Contents
    to be pursued.
 
    This leaves Scenario 1 (do nothing in routers that provide DNS
-   proxy).
+   forwarder).
 
 6.  Questions for the WG
 
