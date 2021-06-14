@@ -4,8 +4,9 @@
 
 ADD Working Group                                             B.H. Stark
 Internet-Draft                                                      AT&T
-Intended status: Informational                               26 May 2021
-Expires: 27 November 2021
+Intended status: Informational                                    C. Box
+Expires: 16 December 2021                                             BT
+                                                            14 June 2021
 
 
        Analysis of DNS Forwarder Scenario Relative to DDR and DNR
@@ -50,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 November 2021.
+   This Internet-Draft will expire on 16 December 2021.
 
 Copyright Notice
 
@@ -74,8 +75,8 @@ Table of Contents
    4.  Scenario Analysis
      4.1.  Scenario 1: No changes to CE router
      4.2.  Scenario 2: CE router updated to provide DNR in DHCP/RA
-     4.3.  Scenario 3: CE router updated to support encryption to its
-           DNS forwarder
+     4.3.  Scenario 3: CE router updated to support opportunistic
+           encryption to its DNS forwarder
    5.  Conclusions
    6.  Questions for the WG
    7.  Security Considerations
@@ -84,7 +85,7 @@ Table of Contents
      9.1.  Normative References
      9.2.  Informative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -210,12 +211,12 @@ Table of Contents
       of the Encrypted Resolver and will not do "opportunistic
       discovery".
 
-   *  The OS/app will not use an Encrypted Resolver.
+   *  The OS/app will not discover a local Encrypted Resolver.
 
    The end result is that no Encrypted Resolver will be used by an OS or
-   app that uses DDR or DNR to discover an Encrypted Resolver (unless
+   app that uses DDR or DNR to discover an Encrypted Resolver, unless
    the OS or app subsequently uses some non-standard mechanism to select
-   an Encrypted Resolver).  Note that this suggests that the DDR and DNR
+   an Encrypted Resolver.  Note that this suggests that the DDR and DNR
    proposals in their current form do not satisfy the requirement "R4.2
    Achieving requirement 4.1 SHOULD NOT require any changes to DNS
    forwarders hosted on non-upgradable legacy network devices."
@@ -237,6 +238,9 @@ Table of Contents
    *  The CE router gets its Encrypted Resolver info from DHCP; getting
       that was part of the update
 
+   *  The upstream ISP has updated its core network resolver to support
+      encryption, and announces this resolver in DHCP
+
    Expected behaviors:
 
    *  OSs will use the Encrypted Resolver
@@ -253,10 +257,13 @@ Table of Contents
    *  Filtering in the CE router (parental controls and other security
       mechanisms enabled by the home network owner) is now broken
 
+   *  Any filtering deployed in the core network resolver continues to
+      operate
+
    *  No local caching
 
-4.3.  Scenario 3: CE router updated to support encryption to its DNS
-      forwarder
+4.3.  Scenario 3: CE router updated to support opportunistic encryption
+      to its DNS forwarder
 
    Assumptions:
 
@@ -268,17 +275,18 @@ Table of Contents
    *  The CE router is updated to reply to "dns://resolver.arpa"; SVCB
       record points to the CE router with a self-signed certificate
 
-   Expected behaviors:
-
-   *  Some OSs and applications may accept the self-signed certificate
-      and some may not, resulting in unpredictable behavior
-
-   *  Those that do not accept the self-signed certificate will not use
-      the Encrypted Resolver, and those that do accept it will use the
-      Encrypted Resolver
-
    Note that the effort do do these upgrades is considered to be rather
    large.
+
+   Expected behaviors:
+
+   *  Some OSs and applications accept DDR Opportunistic Discovery,
+      resulting in use of the CE router's Encrypted Resolver.
+
+   *  Some OSs and applications do not.
+
+   *  Across a range of households, and even within a single household,
+      there is inconsistent behavior.
 
 5.  Conclusions
 
@@ -364,7 +372,7 @@ Acknowledgments
 
    Thanks to ...
 
-Author's Address
+Authors' Addresses
 
    B.H. Stark
    AT&T
@@ -372,3 +380,11 @@ Author's Address
    United States of America
 
    Email: barbara.stark@att.com
+
+
+   Chris Box
+   BT
+   Bristol
+   United Kingdom
+
+   Email: chris.box@bt.com
