@@ -20,7 +20,13 @@ author:
     city: Austin, TX
     country: US
     email: barbara.stark@att.com
-
+ -
+    ins: C. Box
+    name: Chris Box
+    org: BT
+    city: Bristol
+    country: UK
+    email: chris.box@bt.com
 
 normative:
   RFC2119:
@@ -138,11 +144,11 @@ Expected behaviors:
  - If that recursive resolver has the appropriate SVCB record, it will provide that in the response that is returned.
  - The querying OS/app will determine that the IP address of its Unencrypted Resolver (the CE router) and the IP address of the Unencrypted Resolver in the supplied certificate do not match and will not do "authenticated discovery".
  - The querying OS/app will determine that the IP address of its Unencrypted Resolver (the CE router) does not match the IP address of the Encrypted Resolver and will not do "opportunistic discovery".
- - The OS/app will not use an Encrypted Resolver.
+ - The OS/app will not discover a local Encrypted Resolver.
 
 The end result is that no Encrypted Resolver will be used by an OS or app that
-uses DDR or DNR to discover an Encrypted Resolver (unless the OS or app subsequently
-uses some non-standard mechanism to select an Encrypted Resolver). Note that this
+uses DDR or DNR to discover an Encrypted Resolver, unless the OS or app subsequently
+uses some non-standard mechanism to select an Encrypted Resolver. Note that this
 suggests that the DDR and DNR proposals in their current form do not satisfy the
 requirement "R4.2 Achieving requirement 4.1 SHOULD NOT require any changes to DNS
 forwarders hosted on non-upgradable legacy network devices."
@@ -159,6 +165,7 @@ Assumptions:
 
  - The CE router is updated to provide Encrypted Resolver info in DHCP/RA
  - The CE router gets its Encrypted Resolver info from DHCP; getting that was part of the update
+ - The upstream ISP has updated its core network resolver to support encryption, and announces this resolver in DHCP
 
 Expected behaviors:
 
@@ -170,9 +177,10 @@ Additional results:
  - Local name resolution is broken?
  - Legacy captive portal is now broken?
  - Filtering in the CE router (parental controls and other security mechanisms enabled by the home network owner) is now broken
+ - Any filtering deployed in the core network resolver continues to operate
  - No local caching
 
-## Scenario 3: CE router updated to support encryption to its DNS forwarder
+## Scenario 3: CE router updated to support opportunistic encryption to its DNS forwarder
 
 Assumptions:
 
@@ -180,12 +188,14 @@ Assumptions:
  - The CE router is updated to provide Encrypted Resolver info in DHCP/RA
  - The CE router is updated to reply to `dns://resolver.arpa`; SVCB record points to the CE router with a self-signed certificate
 
+Note that the effort do do these upgrades is considered to be rather large.
+
 Expected behaviors:
 
- - Some OSs and applications may accept the self-signed certificate and some may not, resulting in unpredictable behavior
- - Those that do not accept the self-signed certificate will not use the Encrypted Resolver, and those that do accept it will use the Encrypted Resolver
+ - Some OSs and applications accept DDR Opportunistic Discovery, resulting in use of the CE router's Encrypted Resolver.
+ - Some OSs and applications do not.
+ - Across a range of households, and even within a single household, there is inconsistent behavior.
 
-Note that the effort do do these upgrades is considered to be rather large.
 
 # Conclusions
 
