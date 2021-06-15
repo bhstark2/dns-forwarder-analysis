@@ -5,8 +5,8 @@
 ADD Working Group                                             B.H. Stark
 Internet-Draft                                                      AT&T
 Intended status: Informational                                    C. Box
-Expires: 16 December 2021                                             BT
-                                                            14 June 2021
+Expires: 17 December 2021                                             BT
+                                                            15 June 2021
 
 
        Analysis of DNS Forwarder Scenario Relative to DDR and DNR
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 December 2021.
+   This Internet-Draft will expire on 17 December 2021.
 
 Copyright Notice
 
@@ -338,9 +338,9 @@ Table of Contents
    [I-D.ietf-add-ddr]
               Pauly, T., Kinnear, E., Wood, C. A., McManus, P., and T.
               Jensen, "Discovery of Designated Resolvers", Work in
-              Progress, Internet-Draft, draft-ietf-add-ddr-00, 11
-              February 2021, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-add-ddr-00.txt>.
+              Progress, Internet-Draft, draft-ietf-add-ddr-01, 14 June
+              2021, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              add-ddr-01.txt>.
 
    [I-D.ietf-add-dnr]
               Boucadair, M., Reddy, T., Wing, D., Cook, N., and T.
@@ -374,7 +374,7 @@ Acknowledgments
 
 Authors' Addresses
 
-   B.H. Stark
+   Barbara Stark
    AT&T
    Austin, TX,
    United States of America
