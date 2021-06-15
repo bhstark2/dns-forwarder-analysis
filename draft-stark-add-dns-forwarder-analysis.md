@@ -14,20 +14,18 @@ smart_quotes: no
 pi: [toc, sortrefs, symrefs]
 
 author:
- -
-    ins: B. H. Stark
-    name: Barbara Stark
-    org: AT&T
-    city: Austin, TX
-    country: US
-    email: barbara.stark@att.com
- -
-    ins: C. Box
-    name: Chris Box
-    org: BT
-    city: Bristol
-    country: UK
-    email: chris.box@bt.com
+-  ins: B. H. Stark
+   name: Barbara Stark
+   org: AT&T
+   city: Austin, TX
+   country: US
+   email: barbara.stark@att.com
+-  ins: C. Box
+   name: Chris Box
+   org: BT
+   city: Bristol
+   country: UK
+   email: chris.box@bt.com
 
 normative:
   RFC2119:
