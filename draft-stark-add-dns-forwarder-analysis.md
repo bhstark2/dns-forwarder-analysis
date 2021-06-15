@@ -16,6 +16,7 @@ pi: [toc, sortrefs, symrefs]
 author:
  -
     ins: B. H. Stark
+    name: Barbara Stark
     org: AT&T
     city: Austin, TX
     country: US
