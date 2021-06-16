@@ -2,11 +2,11 @@
 
 
 
-ADD Working Group                                             B.H. Stark
-Internet-Draft                                                      AT&T
-Intended status: Informational                                    C. Box
-Expires: 17 December 2021                                             BT
-                                                            15 June 2021
+ADD Working Group                                                 C. Box
+Internet-Draft                                                        BT
+Intended status: Informational                                  B. Stark
+Expires: 18 December 2021                                           AT&T
+                                                            16 June 2021
 
 
        Analysis of DNS Forwarder Scenario Relative to DDR and DNR
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 December 2021.
+   This Internet-Draft will expire on 18 December 2021.
 
 Copyright Notice
 
@@ -374,17 +374,17 @@ Acknowledgments
 
 Authors' Addresses
 
-   Barbara Stark
-   AT&T
-   Austin, TX,
-   United States of America
-
-   Email: barbara.stark@att.com
-
-
    Chris Box
    BT
    Bristol
    United Kingdom
 
    Email: chris.box@bt.com
+
+
+   Barbara Stark
+   AT&T
+   Austin, TX,
+   United States of America
+
+   Email: barbara.stark@att.com
